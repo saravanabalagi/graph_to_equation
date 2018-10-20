@@ -20,7 +20,7 @@ class Drawpad extends Component {
         let { paintCanvas } = this;
         return (
             <div className="drawpad">
-                <canvas id='paint' width={250} height={250}/>
+                <canvas id='paint'/>
                 <Button onClick={paintCanvas.clearCanvas} className='light'>Clear</Button>
             </div>
         )

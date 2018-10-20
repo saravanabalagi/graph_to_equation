@@ -1,3 +1,6 @@
+const canvasHeight = 250;
+const canvasWidth = 250;
+
 export class PaintCanvas {
 
   constructor() {
@@ -10,6 +13,7 @@ export class PaintCanvas {
   }
 
   clearCanvas = () => {
+    console.log(this.points);
     this.points = [];
     let {ctx, canvas} = this;
     ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -20,6 +24,9 @@ export class PaintCanvas {
     this.ctx = this.canvas.getContext('2d');
 
     let {ctx, canvas, mouse, lastMouse} = this;
+
+    ctx.canvas.height = canvasHeight;
+    ctx.canvas.width = canvasWidth;
 
     ctx.lineWidth = 5;
     ctx.lineJoin = 'round';
@@ -47,9 +54,16 @@ export class PaintCanvas {
       ctx.lineTo(mouse.x, mouse.y);
       ctx.closePath();
 
-      this.points = [...this.points, {x: mouse.x, y: mouse.y} ];
+      this.points.push(this.convertPoint(mouse));
       ctx.stroke();
     }
+  }
+
+  convertPoint = ({x,y}) => {
+    return ({
+      x: x - canvasWidth/2,
+      y: - ( y - canvasHeight/2 )
+    });
   }
 
 }
