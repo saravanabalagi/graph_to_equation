@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
-import { setupCanvas } from './draw';
+import { setupCanvas, clearCanvas } from './draw';
+import {Button} from "bloomer";
+
+import './drawpad.css';
 
 class Drawpad extends Component {
 
@@ -9,7 +12,10 @@ class Drawpad extends Component {
 
     render() {
         return (
-            <canvas id='paint' width={250} height={250}/>
+            <div className="drawpad">
+                <canvas id='paint' width={250} height={250}/>
+                <Button onClick={clearCanvas} className='light'>Clear</Button>
+            </div>
         )
     }
 }

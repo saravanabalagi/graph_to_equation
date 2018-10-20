@@ -1,15 +1,10 @@
 export function setupCanvas() {
 
-    var canvas = document.querySelector('#paint');
-    var ctx = canvas.getContext('2d');
+    let canvas = document.querySelector('#paint');
+    let ctx = canvas.getContext('2d');
 
-    // var sketch = document.querySelector('#sketch');
-    // var sketch_style = getComputedStyle(sketch);
-    // canvas.width = parseInt(sketch_style.getPropertyValue('width'));
-    // canvas.height = parseInt(sketch_style.getPropertyValue('height'));
-
-    var mouse = {x: 0, y: 0};
-    var last_mouse = {x: 0, y: 0};
+    let mouse = {x: 0, y: 0};
+    let last_mouse = {x: 0, y: 0};
 
     /* Mouse Capturing Work */
     canvas.addEventListener('mousemove', function(e) {
@@ -28,6 +23,7 @@ export function setupCanvas() {
     ctx.strokeStyle = 'blue';
 
     canvas.addEventListener('mousedown', function(e) {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
         canvas.addEventListener('mousemove', onPaint, false);
     }, false);
 
@@ -35,11 +31,24 @@ export function setupCanvas() {
         canvas.removeEventListener('mousemove', onPaint, false);
     }, false);
 
-    var onPaint = function() {
+    canvas.addEventListener('mouseout', function () {
+        canvas.removeEventListener('mousemove', onPaint, false);
+    });
+
+    let onPaint = function() {
         ctx.beginPath();
         ctx.moveTo(last_mouse.x, last_mouse.y);
         ctx.lineTo(mouse.x, mouse.y);
         ctx.closePath();
         ctx.stroke();
     }
+}
+
+export function clearCanvas() {
+
+    let canvas = document.querySelector('#paint');
+    let ctx = canvas.getContext('2d');
+
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
 }
