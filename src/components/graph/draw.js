@@ -58,41 +58,75 @@ export class PaintCanvas {
       canvasCtx.lineTo(mouse.x, mouse.y);
       canvasCtx.closePath();
 
-      this.points.push(this.convertPoint(mouse));
+      this.points.push(this.convertToGraphPoint(mouse));
       canvasCtx.stroke();
     }
   }
 
-  convertPoint = ({x, y}) => {
-    return ({
-      x: x - canvasWidth / 2,
-      y: -(y - canvasHeight / 2)
-    });
-  };
 
   setupScale() {
     this.scale = document.querySelector('#scale');
     this.scaleCtx = this.scale.getContext('2d');
 
-    let {scaleCtx, scale} = this;
+    let {scaleCtx} = this;
 
     scaleCtx.canvas.height = canvasHeight;
     scaleCtx.canvas.width = canvasWidth;
 
     scaleCtx.lineWidth = 1;
     scaleCtx.strokeStyle = '#00000011';
+    scaleCtx.fillStyle = '#00000066';
 
-    this.drawScale({x: 0, y: canvasHeight / 2}, {x: canvasWidth, y: canvasHeight / 2});
-    this.drawScale({x: canvasWidth / 2, y: 0}, {x: canvasWidth / 2, y: canvasHeight});
+    let drawScaleLine = (start, end) => {
+      let { scaleCtx } = this;
+      scaleCtx.beginPath();
+      scaleCtx.moveTo(start.x, start.y);
+      scaleCtx.lineTo(end.x, end.y);
+      scaleCtx.closePath();
+      scaleCtx.stroke();
+    };
+
+    // draw axes
+    drawScaleLine({x: 0, y: canvasHeight / 2}, {x: canvasWidth, y: canvasHeight / 2});
+    drawScaleLine({x: canvasWidth / 2, y: 0}, {x: canvasWidth / 2, y: canvasHeight});
+
+    // draw grid
+    for(let i=-4; i<=4; i++) drawScaleLine({x: 0, y: i*canvasHeight/10 + canvasHeight / 2}, {x: canvasWidth, y: i*canvasHeight/10 + canvasHeight / 2});
+    for(let j=-4; j<=4; j++) drawScaleLine({x: j*canvasWidth/10 + canvasWidth / 2, y: 0}, {x: j*canvasWidth/10 + canvasWidth / 2, y: canvasHeight});
+
+    // x-axis scale
+    let xOffset = 15;
+    let yOffset = -2.5;
+    for(let i=-4; i<=4; i++) {
+      let {x, y} = this.convertToCanvasPoint({x: i+ i*canvasWidth/10, y: 0});
+      scaleCtx.fillText(String(i), x + yOffset, y + xOffset);
+    }
+
+    // y-axis scale
+    xOffset = 2.5;
+    yOffset = 8;
+    for(let j=-4; j<=4; j++) {
+      if(j===0) continue;
+      let {x, y} = this.convertToCanvasPoint({x: 0, y: j+ j*canvasHeight/10});
+      scaleCtx.fillText(String(j), x + yOffset, y + xOffset);
+    }
+
+
   }
 
-  drawScale = (start, end) => {
-    let { scaleCtx } = this;
-    scaleCtx.beginPath();
-    scaleCtx.moveTo(start.x, start.y);
-    scaleCtx.lineTo(end.x, end.y);
-    scaleCtx.closePath();
-    scaleCtx.stroke();
-  }
+  convertToGraphPoint = ({x, y}) => {
+    return ({
+      x: x - canvasWidth / 2,
+      y: -(y - canvasHeight / 2)
+    });
+  };
+
+  convertToCanvasPoint = ({x, y}) => {
+    return ({
+      x: x + canvasWidth / 2,
+      y: -(y - canvasHeight / 2)
+    });
+  };
+
 
 }
