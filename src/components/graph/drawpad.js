@@ -22,11 +22,18 @@ class Drawpad extends Component {
         return (
           <div className='left-pane'>
             <div className='drawpad-wrapper'>
-                <div className='drawpad'>
-                  <canvas id='paint'/>
-                  <canvas id='scale'/>
+              <div className='drawpad'>
+                <canvas id='paint'/>
+                <canvas id='scale'/>
+              </div>
+              <div className='tools'>
+                <div className="field">
+                  <input className="is-checkradio is-success" id="exampleCheckboxSuccess" type="checkbox"
+                         name="exampleCheckboxSuccess" checked="checked" />
+                  <label htmlFor="exampleCheckboxSuccess">Auto Clear</label>
                 </div>
-                <Button onClick={paintCanvas.clearCanvas} className='light'>Clear</Button>
+                <Button onClick={paintCanvas.clearCanvas} className='light is-warning'>Clear</Button>
+              </div>
             </div>
           </div>
         )
