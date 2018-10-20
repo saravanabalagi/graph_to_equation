@@ -37,8 +37,13 @@
     .tools {
       margin: 10px 20px;
       display: flex;
-      align-items: baseline;
+      align-items: flex-end;
       justify-content: space-between;
+      height: 36px;
+
+      .auto-clear-wrapper {
+        margin: 0;
+      }
     }
 
   }
