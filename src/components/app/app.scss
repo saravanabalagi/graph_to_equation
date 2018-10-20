@@ -1,4 +1,8 @@
 .app {
   padding-top: 52px;
+
+  .columns.is-fullheight {
+    height: calc(100vh - ( 3.25rem - .75rem ) );
+  }
 }
 

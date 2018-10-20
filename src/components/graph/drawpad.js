@@ -1,20 +1,27 @@
 import React, { Component } from 'react';
-import { setupCanvas, clearCanvas } from './draw';
+import {PaintCanvas} from './draw';
 import {Button} from "bloomer";
 
 import './drawpad.css';
 
 class Drawpad extends Component {
 
+    constructor(props) {
+      super(props);
+      this.paintCanvas = new PaintCanvas();
+    }
+
     componentDidMount() {
-        setupCanvas();
+      let { paintCanvas } = this;
+      paintCanvas.setupCanvas();
     }
 
     render() {
+        let { paintCanvas } = this;
         return (
             <div className="drawpad">
                 <canvas id='paint' width={250} height={250}/>
-                <Button onClick={clearCanvas} className='light'>Clear</Button>
+                <Button onClick={paintCanvas.clearCanvas} className='light'>Clear</Button>
             </div>
         )
     }

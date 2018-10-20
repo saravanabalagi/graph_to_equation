@@ -1,12 +1,14 @@
 .drawpad {
   padding: 20px;
+  text-align: center;
 
   canvas {
     border: 1px solid #00000011;
     display: block;
+    margin: 20px auto;
   }
 
   Button {
-    margin: 20px;
+    margin: 0 10px;
   }
 }
