@@ -3,8 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="a52f27d1-024b-4ffa-97fe-c6914bd831fe" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/app/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/app/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/equation/equation.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/equation/equation.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/graph/draw.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/graph/draw.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/graph/drawpad.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/graph/drawpad.scss" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -57,18 +59,18 @@
           <entry key="css" value="9" />
           <entry key="gitignore" value="1" />
           <entry key="html" value="31" />
-          <entry key="js" value="3962" />
-          <entry key="scss" value="652" />
-          <entry key="txt" value="253" />
+          <entry key="js" value="4029" />
+          <entry key="scss" value="674" />
+          <entry key="txt" value="275" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CSS" value="9" />
           <entry key="HTML" value="31" />
-          <entry key="JavaScript" value="3962" />
-          <entry key="PLAIN_TEXT" value="254" />
-          <entry key="SCSS" value="652" />
+          <entry key="JavaScript" value="4029" />
+          <entry key="PLAIN_TEXT" value="276" />
+          <entry key="SCSS" value="674" />
         </counts>
       </usages-collector>
     </session>
@@ -90,8 +92,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/app/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="17" column="25" lean-forward="true" selection-start-line="17" selection-start-column="25" selection-end-line="17" selection-end-column="25" />
+            <state relative-caret-position="306">
+              <caret line="18" column="45" lean-forward="true" selection-start-line="18" selection-start-column="45" selection-end-line="18" selection-end-column="45" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
               </folding>
@@ -102,26 +104,26 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/equation/equation.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" selection-start-line="9" selection-end-line="9" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/components/graph/draw.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="88" column="16" selection-start-line="88" selection-start-column="16" selection-end-line="88" selection-end-column="16" />
+            <state relative-caret-position="51">
+              <caret line="3" column="21" selection-start-line="3" selection-start-column="21" selection-end-line="3" selection-end-column="21" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/components/graph/draw.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="17">
+              <caret line="1" column="21" lean-forward="true" selection-start-line="1" selection-start-column="21" selection-end-line="1" selection-end-column="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/components/graph/drawpad.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="27" column="7" lean-forward="true" selection-start-line="27" selection-start-column="7" selection-end-line="27" selection-end-column="7" />
+            <state relative-caret-position="85">
+              <caret line="5" column="2" selection-start-line="5" selection-start-column="2" selection-end-line="5" selection-end-column="2" />
             </state>
           </provider>
         </entry>
@@ -160,13 +162,13 @@
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/src/components/app/app.scss" />
-        <option value="$PROJECT_DIR$/src/components/app/app.js" />
         <option value="$PROJECT_DIR$/src/components/equation/equation.js" />
-        <option value="$PROJECT_DIR$/src/components/equation/equation.scss" />
         <option value="$PROJECT_DIR$/src/components/graph/drawpad.js" />
-        <option value="$PROJECT_DIR$/src/components/graph/drawpad.scss" />
         <option value="$PROJECT_DIR$/public/index.html" />
         <option value="$PROJECT_DIR$/src/components/graph/draw.js" />
+        <option value="$PROJECT_DIR$/src/components/equation/equation.scss" />
+        <option value="$PROJECT_DIR$/src/components/app/app.js" />
+        <option value="$PROJECT_DIR$/src/components/graph/drawpad.scss" />
       </list>
     </option>
   </component>
@@ -263,7 +265,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1540055052295" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1540056398933" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -316,7 +318,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1539980736716</updated>
-      <workItem from="1539980739090" duration="27055000" />
+      <workItem from="1539980739090" duration="28327000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit">
       <created>1539984162364</created>
@@ -367,11 +369,18 @@
       <option name="project" value="LOCAL" />
       <updated>1540052996776</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="graph grid and axes">
+      <created>1540055078291</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1540055078291</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="27055000" />
+    <option name="totallyTimeSpent" value="28327000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -432,7 +441,8 @@
     <MESSAGE value="Adding Logo" />
     <MESSAGE value="UI Additions" />
     <MESSAGE value="Setup Axes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Setup Axes" />
+    <MESSAGE value="graph grid and axes" />
+    <option name="LAST_COMMIT_MESSAGE" value="graph grid and axes" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/serviceWorker.js">
@@ -545,23 +555,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/app/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="17" column="25" lean-forward="true" selection-start-line="17" selection-start-column="25" selection-end-line="17" selection-end-column="25" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/equation/equation.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" selection-start-line="9" selection-end-line="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/graph/drawpad.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
@@ -569,13 +562,6 @@
           <folding>
             <element signature="e#0#41#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/graph/drawpad.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="27" column="7" lean-forward="true" selection-start-line="27" selection-start-column="7" selection-end-line="27" selection-end-column="7" />
         </state>
       </provider>
     </entry>
@@ -591,8 +577,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/graph/draw.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="88" column="16" selection-start-line="88" selection-start-column="16" selection-end-line="88" selection-end-column="16" />
+        <state relative-caret-position="17">
+          <caret line="1" column="21" lean-forward="true" selection-start-line="1" selection-start-column="21" selection-end-line="1" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/equation/equation.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="21" selection-start-line="3" selection-start-column="21" selection-end-line="3" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/app/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="45" lean-forward="true" selection-start-line="18" selection-start-column="45" selection-end-line="18" selection-end-column="45" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/graph/drawpad.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="2" selection-start-line="5" selection-start-column="2" selection-end-line="5" selection-end-column="2" />
         </state>
       </provider>
     </entry>

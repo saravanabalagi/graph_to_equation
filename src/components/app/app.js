@@ -17,10 +17,10 @@ class App extends Component {
         <Navbar/>
         {/*<Container>*/}
           <Columns className="is-fullheight">
-            <Column>
+            <Column className='is-flex'>
               <Drawpad/>
             </Column>
-            <Column>
+            <Column className='is-flex'>
               <Equation/>
             </Column>
           </Columns>

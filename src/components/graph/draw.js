@@ -1,5 +1,5 @@
-const canvasHeight = 250;
-const canvasWidth = 250;
+const canvasHeight = 500;
+const canvasWidth = 500;
 
 export class PaintCanvas {
 
@@ -32,10 +32,10 @@ export class PaintCanvas {
     canvasCtx.canvas.height = canvasHeight;
     canvasCtx.canvas.width = canvasWidth;
 
-    canvasCtx.lineWidth = 5;
+    canvasCtx.lineWidth = 7;
     canvasCtx.lineJoin = 'round';
     canvasCtx.lineCap = 'round';
-    canvasCtx.strokeStyle = 'blue';
+    canvasCtx.strokeStyle = '#FF000055';
 
     canvas.addEventListener('mousemove', function(e) {
       lastMouse.x = mouse.x;
@@ -95,19 +95,19 @@ export class PaintCanvas {
     for(let j=-4; j<=4; j++) drawScaleLine({x: j*canvasWidth/10 + canvasWidth / 2, y: 0}, {x: j*canvasWidth/10 + canvasWidth / 2, y: canvasHeight});
 
     // x-axis scale
-    let xOffset = 15;
+    let xOffset = 12;
     let yOffset = -2.5;
-    for(let i=-4; i<=4; i++) {
-      let {x, y} = this.convertToCanvasPoint({x: i+ i*canvasWidth/10, y: 0});
+    for(let i=-5; i<=5; i++) {
+      let {x, y} = this.convertToCanvasPoint({x: i+ i*canvasWidth/11, y: 0});
       scaleCtx.fillText(String(i), x + yOffset, y + xOffset);
     }
 
     // y-axis scale
-    xOffset = 2.5;
-    yOffset = 8;
-    for(let j=-4; j<=4; j++) {
+    xOffset = 4;
+    yOffset = 4;
+    for(let j=-5; j<=5; j++) {
       if(j===0) continue;
-      let {x, y} = this.convertToCanvasPoint({x: 0, y: j+ j*canvasHeight/10});
+      let {x, y} = this.convertToCanvasPoint({x: 0, y: j+ j*canvasHeight/11});
       scaleCtx.fillText(String(j), x + yOffset, y + xOffset);
     }
 
