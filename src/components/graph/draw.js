@@ -96,18 +96,18 @@ export class PaintCanvas {
 
     // x-axis scale
     let xOffset = 12;
-    let yOffset = -2.5;
+    let yOffset = 3;
     for(let i=-5; i<=5; i++) {
-      let {x, y} = this.convertToCanvasPoint({x: i+ i*canvasWidth/11, y: 0});
+      let {x, y} = this.convertToCanvasPoint({x: i+ i*canvasWidth/10, y: 0});
       scaleCtx.fillText(String(i), x + yOffset, y + xOffset);
     }
 
     // y-axis scale
-    xOffset = 4;
+    xOffset = 12;
     yOffset = 4;
     for(let j=-5; j<=5; j++) {
       if(j===0) continue;
-      let {x, y} = this.convertToCanvasPoint({x: 0, y: j+ j*canvasHeight/11});
+      let {x, y} = this.convertToCanvasPoint({x: 0, y: j+ j*canvasHeight/10});
       scaleCtx.fillText(String(j), x + yOffset, y + xOffset);
     }
 
