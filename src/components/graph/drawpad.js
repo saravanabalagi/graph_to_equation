@@ -19,10 +19,12 @@ class Drawpad extends Component {
     render() {
         let { paintCanvas } = this;
         return (
+          <div className='left-pane'>
             <div className="drawpad">
                 <canvas id='paint'/>
                 <Button onClick={paintCanvas.clearCanvas} className='light'>Clear</Button>
             </div>
+          </div>
         )
     }
 }

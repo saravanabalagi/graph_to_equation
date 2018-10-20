@@ -1,14 +1,22 @@
-.drawpad {
-  padding: 20px;
-  text-align: center;
+.left-pane  {
 
-  canvas {
-    border: 1px solid #00000011;
-    display: block;
-    margin: 20px auto;
+  text-align: right;
+
+  .drawpad {
+    padding: 20px;
+    display: inline-block;
+    text-align: center;
+    width: 400px;
+
+    canvas {
+      border: 1px solid #00000011;
+      display: block;
+      margin: 20px auto;
+    }
+
+    Button {
+      margin: 0 10px;
+    }
   }
 
-  Button {
-    margin: 0 10px;
-  }
 }
