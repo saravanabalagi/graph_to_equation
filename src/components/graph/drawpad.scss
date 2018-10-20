@@ -2,21 +2,38 @@
 
   text-align: right;
 
-  .drawpad {
-    padding: 20px;
+  .drawpad-wrapper {
+
     display: inline-block;
     text-align: center;
-    width: 400px;
 
-    canvas {
-      border: 1px solid #00000011;
-      display: block;
-      margin: 20px auto;
+    .drawpad {
+      position: relative;
+      margin: 20px;
+
+      #scale {
+        border: 1px solid transparent;
+        pointer-events: none;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+      }
+
+      #paint {
+        border: 1px solid #00000033;
+        display: block;
+        margin: 0 auto;
+      }
+
+      Button {
+        margin: 0 10px;
+      }
     }
 
-    Button {
-      margin: 0 10px;
-    }
   }
+
+
 
 }

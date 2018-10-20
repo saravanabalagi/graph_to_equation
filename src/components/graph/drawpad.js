@@ -14,14 +14,18 @@ class Drawpad extends Component {
     componentDidMount() {
       let { paintCanvas } = this;
       paintCanvas.setupCanvas();
+      paintCanvas.setupScale();
     }
 
     render() {
         let { paintCanvas } = this;
         return (
           <div className='left-pane'>
-            <div className="drawpad">
-                <canvas id='paint'/>
+            <div className='drawpad-wrapper'>
+                <div className='drawpad'>
+                  <canvas id='paint'/>
+                  <canvas id='scale'/>
+                </div>
                 <Button onClick={paintCanvas.clearCanvas} className='light'>Clear</Button>
             </div>
           </div>
