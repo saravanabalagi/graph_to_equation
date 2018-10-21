@@ -14,6 +14,7 @@ export class PaintCanvas {
 
     this.mouse = {x: 0, y: 0};
     this.lastMouse = {x: 0, y: 0};
+    this.isMouseDown = false;
   }
 
   clearCanvas = () => {
@@ -23,11 +24,11 @@ export class PaintCanvas {
     canvasCtx.clearRect(0, 0, canvas.width, canvas.height);
   };
 
-  setupCanvas() {
+  setupCanvas(callback) {
     this.canvas = document.querySelector('#paint');
     this.canvasCtx = this.canvas.getContext('2d');
 
-    let {canvasCtx, canvas, mouse, lastMouse} = this;
+    let {canvasCtx, canvas, mouse, lastMouse, isMouseDown} = this;
 
     canvasCtx.canvas.height = canvasHeight;
     canvasCtx.canvas.width = canvasWidth;
@@ -46,13 +47,22 @@ export class PaintCanvas {
 
     canvas.addEventListener('mousedown', () => {
       this.clearCanvas();
+      isMouseDown = true;
       canvas.addEventListener('mousemove', onPaint, false);
     }, false);
 
-    canvas.addEventListener('mouseup', () => {canvas.removeEventListener('mousemove', onPaint, false)}, false);
-    canvas.addEventListener('mouseout', () => {canvas.removeEventListener('mousemove', onPaint, false)}, false);
+    canvas.addEventListener('mouseup', () => {endStroke()}, false);
+    canvas.addEventListener('mouseout', () => {endStroke()}, false);
+
+    let endStroke = () => {
+      if(isMouseDown) {
+        callback();
+        isMouseDown = false;
+      }
+    };
 
     let onPaint = () => {
+      if(!isMouseDown) return;
       canvasCtx.beginPath();
       canvasCtx.moveTo(lastMouse.x, lastMouse.y);
       canvasCtx.lineTo(mouse.x, mouse.y);

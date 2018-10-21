@@ -13,16 +13,31 @@ import {Column, Columns} from "bloomer";
 
 
 class App extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      equation: null
+    }
+  }
+
+  updateEquation = (equation) => {
+    console.log('equation updated');
+    this.setState({equation: equation});
+  };
+
   render() {
+    let {equation} = this.state;
+    let {updateEquation} = this;
     return (
       <div className="app">
         <Navbar/>
           <Columns className="is-fullheight">
             <Column className='is-flex'>
-              <Drawpad/>
+              <Drawpad updateEquation={updateEquation}/>
             </Column>
             <Column className='is-flex'>
-              <Equation/>
+              <Equation equation={equation}/>
             </Column>
           </Columns>
       </div>
