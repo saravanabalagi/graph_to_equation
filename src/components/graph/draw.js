@@ -1,5 +1,7 @@
-const canvasHeight = 500;
-const canvasWidth = 500;
+import {Point, predictEquation} from "./point";
+
+export const canvasHeight = 500;
+export const canvasWidth = 500;
 
 export class PaintCanvas {
 
@@ -12,8 +14,8 @@ export class PaintCanvas {
 
     this.points = [];
 
-    this.mouse = {x: 0, y: 0};
-    this.lastMouse = {x: 0, y: 0};
+    this.mouse = new Point(0, 0);
+    this.lastMouse = new Point(0, 0);
     this.isMouseDown = false;
   }
 
@@ -25,6 +27,7 @@ export class PaintCanvas {
   };
 
   setupCanvas(callback) {
+
     this.canvas = document.querySelector('#paint');
     this.canvasCtx = this.canvas.getContext('2d');
 
@@ -56,7 +59,7 @@ export class PaintCanvas {
 
     let endStroke = () => {
       if(isMouseDown) {
-        callback();
+        callback(predictEquation(this.points));
         isMouseDown = false;
       }
     };
@@ -68,7 +71,7 @@ export class PaintCanvas {
       canvasCtx.lineTo(mouse.x, mouse.y);
       canvasCtx.closePath();
 
-      this.points.push(this.convertToGraphPoint(mouse));
+      this.points.push(new Point(mouse.x, mouse.y, true));
       canvasCtx.stroke();
     }
   }
@@ -108,7 +111,7 @@ export class PaintCanvas {
     let xOffset = 12;
     let yOffset = 3;
     for(let i=-5; i<=5; i++) {
-      let {x, y} = this.convertToCanvasPoint({x: i+ i*canvasWidth/10, y: 0});
+      let {x, y} = new Point(i+ i*canvasWidth/10, 0).convertToCanvasPoint();
       scaleCtx.fillText(String(i), x + yOffset, y + xOffset);
     }
 
@@ -117,26 +120,11 @@ export class PaintCanvas {
     yOffset = 4;
     for(let j=-5; j<=5; j++) {
       if(j===0) continue;
-      let {x, y} = this.convertToCanvasPoint({x: 0, y: j+ j*canvasHeight/10});
+      let {x, y} = new Point(0,j+ j*canvasHeight/10).convertToCanvasPoint();
       scaleCtx.fillText(String(j), x + yOffset, y + xOffset);
     }
 
 
   }
-
-  convertToGraphPoint = ({x, y}) => {
-    return ({
-      x: x - canvasWidth / 2,
-      y: -(y - canvasHeight / 2)
-    });
-  };
-
-  convertToCanvasPoint = ({x, y}) => {
-    return ({
-      x: x + canvasWidth / 2,
-      y: -(y - canvasHeight / 2)
-    });
-  };
-
 
 }

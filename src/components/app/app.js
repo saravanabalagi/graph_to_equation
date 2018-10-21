@@ -22,7 +22,7 @@ class App extends Component {
   }
 
   updateEquation = (equation) => {
-    console.log('equation updated');
+    console.log('equation updated', equation);
     this.setState({equation: equation});
   };
 
