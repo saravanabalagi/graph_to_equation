@@ -12,8 +12,8 @@ export class Point {
   }
   convertToCanvasPoint() {
     let {x, y} = this;
-    this.x = ( x + canvasWidth / 2 ) * (canvasWidth/10);
-    this.y = ( -(y - canvasHeight / 2) ) * (canvasHeight/10);
+    this.x = ( x + canvasWidth / 2 );
+    this.y = ( -(y - canvasHeight / 2) );
     return this;
   };
 
