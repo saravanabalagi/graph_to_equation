@@ -24,8 +24,8 @@ class Equation extends Component {
           </div>
         }
         {
-          equation &&
-          <div className='notification is-info'>y = 2x</div>
+          equation && equation.a && equation.b &&
+          <div className='notification is-info'>y = {equation.a.toFixed(2)}x + {equation.b.toFixed(2)}</div>
         }
 
       </div>
