@@ -39,7 +39,7 @@ export function predictEquation(points) {
     }, 0);
     if(iterations===0) initialLoss = loss;
 
-    let learningRate = 0.01;
+    let learningRate = 0.1 / points.length;
     let dJda = points.reduce((dJda, {x,y}) => {
       let current_dJda = (y - (a*x+b))*(-1)*(x);
       return dJda + current_dJda;
