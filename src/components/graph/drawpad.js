@@ -21,6 +21,13 @@ class Drawpad extends Component {
     paintCanvas.setupScale();
   }
 
+  componentWillReceiveProps(nextProps) {
+    if(nextProps.equation && nextProps.equation.a && nextProps.equation.b) {
+      let {a,b} = nextProps.equation;
+      this.paintCanvas.drawEquation({a,b});
+    }
+  }
+
   handleAutoClearChange = () => {
     this.setState({autoClear: !this.state.autoClear});
   };
@@ -34,6 +41,7 @@ class Drawpad extends Component {
           <div className='drawpad'>
             <canvas id='paint'/>
             <canvas id='scale'/>
+            <canvas id='result'/>
           </div>
           <div className='tools'>
             <div className="field auto-clear-wrapper">

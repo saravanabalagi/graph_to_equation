@@ -12,6 +12,9 @@ export class PaintCanvas {
     this.scale = null;
     this.scaleCtx = null;
 
+    this.result = null;
+    this.resultCtx = null;
+
     this.points = [];
 
     this.mouse = new Point(0, 0);
@@ -103,6 +106,8 @@ export class PaintCanvas {
     drawScaleLine({x: 0, y: canvasHeight / 2}, {x: canvasWidth, y: canvasHeight / 2});
     drawScaleLine({x: canvasWidth / 2, y: 0}, {x: canvasWidth / 2, y: canvasHeight});
 
+    console.log('axes lines', {x: 0, y: canvasHeight / 2}, {x: canvasWidth, y: canvasHeight / 2});
+
     // draw grid
     for(let i=-4; i<=4; i++) drawScaleLine({x: 0, y: i*canvasHeight/10 + canvasHeight / 2}, {x: canvasWidth, y: i*canvasHeight/10 + canvasHeight / 2});
     for(let j=-4; j<=4; j++) drawScaleLine({x: j*canvasWidth/10 + canvasWidth / 2, y: 0}, {x: j*canvasWidth/10 + canvasWidth / 2, y: canvasHeight});
@@ -124,7 +129,35 @@ export class PaintCanvas {
       scaleCtx.fillText(String(j), x + yOffset, y + xOffset);
     }
 
+  }
 
+  drawEquation({a,b}) {
+    this.result = document.querySelector('#result');
+    this.resultCtx = this.result.getContext('2d');
+
+    let {resultCtx} = this;
+
+    resultCtx.canvas.height = canvasHeight;
+    resultCtx.canvas.width = canvasWidth;
+
+    resultCtx.lineWidth = 1;
+    resultCtx.strokeStyle = '#0000FF66';
+
+    let drawResultLine = (start, end) => {
+      let { resultCtx } = this;
+      resultCtx.beginPath();
+      resultCtx.moveTo(start.x, start.y);
+      resultCtx.lineTo(end.x, end.y);
+      resultCtx.closePath();
+      resultCtx.stroke();
+    };
+
+    let x1 = -canvasWidth/2;
+    let x2 = canvasWidth/2;
+    let leftPoint = new Point(x1, a*x1+b*50).convertToCanvasPoint();
+    let rightPoint = new Point(x2, a*x2+b*50).convertToCanvasPoint();
+    drawResultLine(leftPoint, rightPoint);
+    console.log(leftPoint, rightPoint);
   }
 
 }

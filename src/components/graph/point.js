@@ -20,7 +20,7 @@ export class Point {
   distanceFrom(a,b) {
     let {x,y} = this;
     let dist = y - (a*x + b);
-    return 0.5 * dist * dist;
+    return dist * dist;
   }
 }
 
@@ -30,13 +30,17 @@ export function predictEquation(points) {
   let a = 0;
   let b = 0;
   let initialLoss = NaN;
+  let previousLoss = 9999;
+  let loss = 9990;
 
-  for(let iterations=0; iterations<10; iterations++) {
-    let loss = points.reduce((loss, point) => {
+  for(let iterations=0; previousLoss-loss>0.01; iterations++) {
+    previousLoss = loss;
+    loss = points.reduce((loss, point) => {
       console.log(point, point.distanceFrom(a, b));
       loss += point.distanceFrom(a, b);
       return loss;
     }, 0);
+
     if(iterations===0) initialLoss = loss;
 
     let learningRate = 0.1 / points.length;
@@ -49,7 +53,7 @@ export function predictEquation(points) {
       return dJda + current_dJda;
     }, 0);
 
-    console.log({loss, dJda, dJdb});
+    console.log({previousLoss, loss, dJda, dJdb});
 
     a = a - learningRate * dJda;
     b = b - learningRate * dJdb;
@@ -63,4 +67,5 @@ export function predictEquation(points) {
   }, 0);
 
   return {initialLoss, newLoss, a, b};
+
 }

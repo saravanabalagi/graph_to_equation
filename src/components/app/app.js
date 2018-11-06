@@ -41,6 +41,7 @@ class App extends Component {
           <Columns className="is-fullheight">
             <Column className='is-flex'>
               <Drawpad updateEquation={updateEquation}
+                       equation={equation}
                        round={round}/>
             </Column>
             <Column className='is-flex'>
