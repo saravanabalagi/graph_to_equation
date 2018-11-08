@@ -23,7 +23,6 @@ export class PaintCanvas {
   }
 
   clearCanvas = () => {
-    console.log(this.points);
     this.points = [];
     let {canvasCtx, canvas} = this;
     canvasCtx.clearRect(0, 0, canvas.width, canvas.height);

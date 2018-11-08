@@ -1,4 +1,5 @@
 import {canvasHeight, canvasWidth} from "./draw";
+import {Line} from "./line";
 
 export class Point {
   constructor(x,y, convert=false) {
@@ -22,26 +23,29 @@ export class Point {
     let dist = y - (a*x + b);
     return dist * dist;
   }
+
+  getSlope({x,y}) {
+    let epsilon = 0.001;
+    return (y - this.y)/((x - this.x) + epsilon)
+  }
 }
 
 export function predictEquation(points) {
-  console.log({points});
+  // console.log({points});
 
-  let a = 0;
-  let b = 0;
-  let initialLoss = NaN;
-  let previousLoss = 9999;
-  let loss = 9990;
+  let line = new Line();
+  if(points<2) return line;
 
-  for(let iterations=0; previousLoss-loss>0.01; iterations++) {
+  line.getEquationFrom(points[0], points[1]);
+
+  let initialLoss = line.getLoss(points);
+  let previousLoss = initialLoss;
+  let loss = 9999;
+
+  for(let iterations=0; Math.abs(previousLoss-loss)>0.01; iterations++) {
     previousLoss = loss;
-    loss = points.reduce((loss, point) => {
-      console.log(point, point.distanceFrom(a, b));
-      loss += point.distanceFrom(a, b);
-      return loss;
-    }, 0);
-
-    if(iterations===0) initialLoss = loss;
+    loss = line.getLoss(points);
+    let {a, b} = line;
 
     let learningRate = 0.1 / points.length;
     let dJda = points.reduce((dJda, {x,y}) => {
@@ -55,17 +59,14 @@ export function predictEquation(points) {
 
     console.log({previousLoss, loss, dJda, dJdb});
 
-    a = a - learningRate * dJda;
-    b = b - learningRate * dJdb;
+    line.a = a - learningRate * dJda;
+    line.b = b - learningRate * dJdb;
   }
 
 
-  let newLoss = points.reduce((loss, point) => {
-    console.log(point, point.distanceFrom(a, b));
-    loss += point.distanceFrom(a, b);
-    return loss;
-  }, 0);
+  let finalLoss = line.getLoss(points);
+  console.log({initialLoss, finalLoss});
 
-  return {initialLoss, newLoss, a, b};
+  return line;
 
 }
