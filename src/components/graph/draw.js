@@ -1,4 +1,5 @@
-import {Point, predictEquation} from "./point";
+import {Point} from "./point";
+import {predictEquation} from "./predictEquation";
 
 export const canvasHeight = 500;
 export const canvasWidth = 500;
