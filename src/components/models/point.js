@@ -1,4 +1,4 @@
-import {canvasHeight, canvasWidth} from "./draw";
+import {canvasHeight, canvasWidth} from "./canvas";
 import {Line} from "./line";
 
 export class Point {

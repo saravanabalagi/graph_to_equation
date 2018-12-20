@@ -1,5 +1,5 @@
 import {Point} from "./point";
-import {predictEquation} from "./predictEquation";
+import {predictEquation} from "../actions/predictEquation";
 
 export const canvasHeight = 500;
 export const canvasWidth = 500;
