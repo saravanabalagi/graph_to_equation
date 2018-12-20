@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {PaintCanvas} from '../models/canvas';
+import {PaintCanvas} from '../../core/models/canvas';
 import {Button} from "bloomer";
 
 import './drawpad.css';
