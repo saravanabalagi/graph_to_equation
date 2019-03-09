@@ -5,7 +5,7 @@ import Equation from '../equation/equation';
 import Navbar from '../navbar/navbar';
 
 import './app.css';
-import 'src/assets/bulma-extensions.min.css';
+import 'bulma-extensions/dist/css/bulma-extensions.min.css';
 
 import 'font-awesome/css/font-awesome.min.css';
 import 'bulma/css/bulma.css';

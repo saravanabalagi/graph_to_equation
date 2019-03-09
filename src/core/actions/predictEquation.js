@@ -1,4 +1,4 @@
-import {Line} from "./line";
+import {Line} from "../models/line";
 
 export function predictEquation(points) {
   // console.log({points});
