@@ -17,7 +17,7 @@ class Drawpad extends Component {
   componentDidMount() {
     let { paintCanvas } = this;
     let { updateEquation } = this.props;
-    paintCanvas.setupCanvas(updateEquation);
+    paintCanvas.setupCanvas(updateEquation, this.state.autoClear);
     paintCanvas.setupScale();
   }
 
@@ -28,9 +28,8 @@ class Drawpad extends Component {
     }
   }
 
-  handleAutoClearChange = () => {
-    this.setState({autoClear: !this.state.autoClear});
-  };
+  updateCanvasClearState = () => { this.paintCanvas.canvas.setAttribute('autoClear', this.state.autoClear); };
+  handleAutoClearChange = () => { this.setState({autoClear: !this.state.autoClear}, this.updateCanvasClearState); };
 
   render() {
     let { paintCanvas } = this;

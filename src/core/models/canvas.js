@@ -52,7 +52,11 @@ export class PaintCanvas {
     }, false);
 
     canvas.addEventListener('mousedown', () => {
-      this.clearCanvas();
+      // getAttribute returns String; Do not use ===
+      if(canvas.getAttribute('autoClear') == true) {
+        console.log('clearing canvas');
+        this.clearCanvas();
+      }
       isMouseDown = true;
       canvas.addEventListener('mousemove', onPaint, false);
     }, false);
