@@ -25,9 +25,9 @@ class Equation extends Component {
         }
         {
           equation && equation.a && equation.b &&
-          <div className='notification is-info'>
-            y = {equation.a.toFixed(round)}x
-              + {equation.b.toFixed(round)}
+          <div className='code'>
+            <span className='variable'>y</span> <span className='operator'>=</span> {equation.a.toFixed(round)} <span className='variable'>x</span>
+            <span className='operator'> +</span> {equation.b.toFixed(round)}
             </div>
         }
         <div className='controls'>
