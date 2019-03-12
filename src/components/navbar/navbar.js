@@ -29,23 +29,23 @@ class AppNavBar extends Component {
             </NavbarItem>
           </NavbarStart>
           <NavbarEnd>
-            <NavbarItem href='https://twitter.com/saravanabalagi'>
+            <NavbarItem target='_blank' href='https://twitter.com/saravanabalagi'>
               <span className="icon">
                 <i className="fa fa-twitter"/>
               </span>
             </NavbarItem>
-            <NavbarItem href='https://github.com/saravanabalagi'>
+            <NavbarItem target='_blank' href='https://github.com/saravanabalagi'>
               <span className="icon">
                 <i className="fa fa-github"/>
               </span>
             </NavbarItem>
-            <NavbarItem href='https://linkedin.com/in/saravanabalagi/'>
+            <NavbarItem target='_blank' href='https://linkedin.com/in/saravanabalagi/'>
               <span className="icon">
                 <i className="fa fa-linkedin"/>
               </span>
             </NavbarItem>
             <NavbarItem href='/'>Donate</NavbarItem>
-            <NavbarItem href='https://github.com/saravanabalagi/graph_to_equation'>Fork</NavbarItem>
+            <NavbarItem target='_blank' href='https://github.com/saravanabalagi/graph_to_equation'>Fork</NavbarItem>
           </NavbarEnd>
         </NavbarMenu>
         </Container>
