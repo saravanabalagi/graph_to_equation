@@ -29,9 +29,10 @@ export class PaintCanvas {
     canvasCtx.clearRect(0, 0, canvas.width, canvas.height);
   };
 
-  setupCanvas(callback) {
+  setupCanvas(callback, autoClear) {
 
     this.canvas = document.querySelector('#paint');
+    this.canvas.setAttribute('autoClear', autoClear);
     this.canvasCtx = this.canvas.getContext('2d');
 
     let {canvasCtx, canvas, mouse, lastMouse, isMouseDown} = this;
@@ -53,10 +54,8 @@ export class PaintCanvas {
 
     canvas.addEventListener('mousedown', () => {
       // getAttribute returns String; Do not use ===
-      if(canvas.getAttribute('autoClear') == true) {
-        console.log('clearing canvas');
+      if(JSON.parse(canvas.getAttribute('autoClear')) === true)
         this.clearCanvas();
-      }
       isMouseDown = true;
       canvas.addEventListener('mousemove', onPaint, false);
     }, false);
