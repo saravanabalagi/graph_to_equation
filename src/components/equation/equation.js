@@ -1,8 +1,18 @@
 import React, {Component} from 'react';
 
 import './equation.css';
+import {Button} from "bloomer";
 
 class Equation extends Component {
+
+  copyToClipboard = (e) => {
+    let textField = document.createElement('textarea');
+    textField.innerText = e.target.innerText;
+    document.body.appendChild(textField);
+    textField.select();
+    document.execCommand('copy');
+    textField.remove();
+  };
 
   render() {
     let {equation, round, updateRound} = this.props;
@@ -26,9 +36,14 @@ class Equation extends Component {
         {
           equation && equation.a && equation.b &&
           <div className='code'>
+            <Button isOutlined isColor='info' onClick={this.copyToClipboard} className='icon-copy'>
+              <span className="icon">
+                <i className="fa fa-copy"/>
+              </span>
+            </Button>
             <span className='variable'>y</span> <span className='operator'>=</span> {equation.a.toFixed(round)} <span className='variable'>x</span>
             <span className='operator'> +</span> {equation.b.toFixed(round)}
-            </div>
+          </div>
         }
         <div className='controls'>
           <div className='control-label'>Precision</div>

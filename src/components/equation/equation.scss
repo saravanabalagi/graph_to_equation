@@ -20,13 +20,24 @@
   }
 
   .code {
-    background-color: #282923;
-    color: #F8F8F2;
-    padding: 10px 20px;
+    color: #282923;
+    background-color: #F8F8F2;
+    padding: 15px 20px;
     border-radius: 5px;
     margin-bottom: 20px;
+    border: 1px solid rgba(0,0,0,0.2);
 
     .variable {color: #FD9622;}
     .operator {color: #F92472;}
+
+    position: relative;
+    .icon-copy {
+      position: absolute;
+      right: 7px;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+      width: 35px;
+    }
   }
 }
