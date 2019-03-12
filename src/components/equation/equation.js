@@ -30,7 +30,8 @@ class Equation extends Component {
               + {equation.b.toFixed(round)}
             </div>
         }
-        <div>
+        <div className='controls'>
+          <div className='control-label'>Precision</div>
           <input className="slider"
                  onChange={updateRound}
                  step="1" min="0" max="5"

@@ -3,6 +3,18 @@
   justify-self: center;
   align-self: center;
 
+  .controls {
+    .control-label {
+      display: inline-block;
+      margin: 10px;
+      padding-right: 10px;
+    }
+    .slider {
+      margin: 0;
+      padding-top: 15px;
+    }
+  }
+
   .subtitle {
     padding: 30px 0 10px 0;
   }
