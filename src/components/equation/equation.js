@@ -12,10 +12,25 @@ class Equation extends Component {
     textField.select();
     document.execCommand('copy');
     textField.remove();
+    this.setState({copyText: "Copied"}, ()=>{
+      setTimeout(() => {this.setState({copyText: "Copy"})}, 3000);
+    });
   };
+
+  handleShowTooltip = () => { this.setState({tooltipShouldShow: true}); };
+  handleHideTooltip = () => { this.setState({tooltipShouldShow: false}); };
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      copyText: "Copy",
+      tooltipShouldShow: false
+    }
+  }
 
   render() {
     let {equation, round, updateRound} = this.props;
+    let {copyText, tooltipShouldShow} = this.state;
     return(
       <div className='right-pane'>
         <h2 className='subtitle is-3'>Predicted Equation</h2>
@@ -35,14 +50,21 @@ class Equation extends Component {
         }
         {
           equation && equation.a && equation.b &&
-          <div className='code'>
-            <Button isOutlined isColor='info' onClick={this.copyToClipboard} className='icon-copy'>
-              <span className="icon">
-                <i className="fa fa-copy"/>
-              </span>
-            </Button>
-            <span className='variable'>y</span> <span className='operator'>=</span> {equation.a.toFixed(round)} <span className='variable'>x</span>
-            <span className='operator'> +</span> {equation.b.toFixed(round)}
+          <div className='code-wrapper'>
+            <div className='code'>
+              <Button isOutlined isColor='info'
+                      className='icon-copy'
+                      onClick={this.copyToClipboard}
+                      onMouseOut={this.handleHideTooltip}
+                      onMouseOver={this.handleShowTooltip}>
+                <span className="icon">
+                  <i className="fa fa-copy"/>
+                </span>
+              </Button>
+              <span className='variable'>y</span> <span className='operator'>=</span> {equation.a.toFixed(round)} <span className='variable'>x</span>
+              <span className='operator'> +</span> {equation.b.toFixed(round)}
+            </div>
+            <div className='info-copied' hidden={!tooltipShouldShow}>{copyText}</div>
           </div>
         }
         <div className='controls'>
