@@ -19,11 +19,11 @@
     padding: 30px 0 10px 0;
   }
 
-  .code-wrapper {
+  .code-copy-wrapper {
 
     position: relative;
 
-    .code {
+    .code-wrapper {
       color: #282923;
       background-color: #F8F8F2;
       padding: 15px 20px;
@@ -46,7 +46,7 @@
       }
     }
 
-    .info-copied {
+    .tooltip-copy {
       position: absolute;
       top: 0;
       bottom: 0;

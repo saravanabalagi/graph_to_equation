@@ -5,9 +5,10 @@ import {Button} from "bloomer";
 
 class Equation extends Component {
 
-  copyToClipboard = (e) => {
+  copyToClipboard = () => {
     let textField = document.createElement('textarea');
-    textField.innerText = e.target.innerText;
+    let code = document.getElementsByClassName('code')[0];
+    textField.innerText = code.innerText;
     document.body.appendChild(textField);
     textField.select();
     document.execCommand('copy');
@@ -50,8 +51,8 @@ class Equation extends Component {
         }
         {
           equation && equation.a && equation.b &&
-          <div className='code-wrapper'>
-            <div className='code'>
+          <div className='code-copy-wrapper'>
+            <div className='code-wrapper'>
               <Button isOutlined isColor='info'
                       className='icon-copy'
                       onClick={this.copyToClipboard}
@@ -61,10 +62,12 @@ class Equation extends Component {
                   <i className="fa fa-copy"/>
                 </span>
               </Button>
-              <span className='variable'>y</span> <span className='operator'>=</span> {equation.a.toFixed(round)} <span className='variable'>x</span>
-              <span className='operator'> +</span> {equation.b.toFixed(round)}
+              <span className='code'>
+                <span className='variable'>y</span> <span className='operator'>=</span> {equation.a.toFixed(round)} <span className='variable'>x</span>
+                <span className='operator'> +</span> {equation.b.toFixed(round)}
+              </span>
+              <div className='tooltip-copy' hidden={!tooltipShouldShow}>{copyText}</div>
             </div>
-            <div className='info-copied' hidden={!tooltipShouldShow}>{copyText}</div>
           </div>
         }
         <div className='controls'>
