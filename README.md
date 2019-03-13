@@ -2,6 +2,8 @@
 
 A simple app that gives equations for hand-drawn graphs. Live Demo available at https://graph-to-equation.herokuapp.com.
 
+![Screencast](public/screencast.gif)
+
 
 ## Gradient Descent Approach
 
