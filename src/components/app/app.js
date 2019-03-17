@@ -38,18 +38,18 @@ class App extends Component {
     return (
       <div className="app">
         <Navbar/>
-          <Columns className="is-fullheight">
-            <Column className='is-flex'>
-              <Drawpad updateEquation={updateEquation}
-                       equation={equation}
-                       round={round}/>
-            </Column>
-            <Column className='is-flex'>
-              <Equation equation={equation}
-                        round={round}
-                        updateRound={updateRound}/>
-            </Column>
-          </Columns>
+        <Columns className="is-fullheight">
+          <Column className='is-flex'>
+            <Drawpad updateEquation={updateEquation}
+                     equation={equation}
+                     round={round}/>
+          </Column>
+          <Column className='is-flex'>
+            <Equation equation={equation}
+                      round={round}
+                      updateRound={updateRound}/>
+          </Column>
+        </Columns>
       </div>
     );
   }
