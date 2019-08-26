@@ -20,7 +20,7 @@ class AppNavBar extends Component {
           <NavbarStart
             className="navbar-start"
             style={{flexGrow: 1, justifyContent: 'center'}}>
-            <NavbarItem href='/' style={{color: '#ffdd57'}}>
+            <NavbarItem href='https://github.com/saravanabalagi' style={{color: '#ffdd57'}}>
               Made with &#160;
               <span className="icon" style={{color: '#FF0000'}}>
                 <i className="fa fa-heart"/>
@@ -34,17 +34,12 @@ class AppNavBar extends Component {
                 <i className="fa fa-twitter"/>
               </span>
             </NavbarItem>
-            <NavbarItem target='_blank' href='https://github.com/saravanabalagi'>
-              <span className="icon">
-                <i className="fa fa-github"/>
-              </span>
-            </NavbarItem>
             <NavbarItem target='_blank' href='https://linkedin.com/in/saravanabalagi/'>
               <span className="icon">
                 <i className="fa fa-linkedin"/>
               </span>
             </NavbarItem>
-            <NavbarItem href='/'>Donate</NavbarItem>
+            <NavbarItem href='https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=6VHRX2LP5D5KY&source=url'>Donate</NavbarItem>
             <NavbarItem target='_blank' href='https://github.com/saravanabalagi/graph_to_equation'>Fork</NavbarItem>
           </NavbarEnd>
         </NavbarMenu>
