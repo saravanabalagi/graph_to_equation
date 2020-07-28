@@ -1,6 +1,6 @@
 # Graph to Equation
 
-A simple app that gives equations for hand-drawn graphs. Live Demo available at https://graph-to-equation.herokuapp.com.
+A simple app that gives equations for hand-drawn graphs. Live Demo available at https://saravanabalagi.github.io/graph_to_equation/.
 
 ![Screencast](public/screencast.gif)
 
